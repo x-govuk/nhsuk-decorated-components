@@ -1,4 +1,0 @@
-{% from "character-count/macro.njk" import govukCharacterCount as source -%}
-{%- macro govukCharacterCount(params) -%}
-  {{- source(decorate(params, params.decorate)) -}}
-{%- endmacro %}

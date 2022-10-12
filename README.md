@@ -46,10 +46,8 @@ To add them to the NHS.UK Prototype Kit, follow these steps:
 
     ```diff
     + {% from "x-nhsuk/decorated/button/macro.njk" import button with context %}
-    + {% from "x-nhsuk/decorated/character-count/macro.njk" import characterCount with context %}
     + {% from "x-nhsuk/decorated/checkboxes/macro.njk" import checkboxes with context %}
     + {% from "x-nhsuk/decorated/date-input/macro.njk" import dateInput with context %}
-    + {% from "x-nhsuk/decorated/file-upload/macro.njk" import fileUpload with context %}
     + {% from "x-nhsuk/decorated/input/macro.njk" import input with context %}
     + {% from "x-nhsuk/decorated/radios/macro.njk" import radios with context %}
     + {% from "x-nhsuk/decorated/select/macro.njk" import select with context %}
