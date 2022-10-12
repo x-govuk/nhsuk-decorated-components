@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "Form components for the NHS.UK Design System that require less parameters to collect data",
   "keywords": [
-    "govuk",
+    "nhsuk",
     "design system",
     "prototyping",
     "components"
