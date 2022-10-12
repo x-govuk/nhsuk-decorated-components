@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-decorated-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Form components for the NHS.UK Design System that require less parameters to collect data",
   "keywords": [
     "govuk",
