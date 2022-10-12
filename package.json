@@ -1,0 +1,53 @@
+{
+  "name": "nhsuk-decorated-components",
+  "version": "0.0.1",
+  "description": "Form components for the NHS.UK Design System that require less parameters to collect data",
+  "keywords": [
+    "govuk",
+    "design system",
+    "prototyping",
+    "components"
+  ],
+  "homepage": "https://github.com/x-govuk/nhsuk-decorated-components#readme",
+  "bugs": {
+    "url": "https://github.com/x-govuk/nhsuk-decorated-components/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "lib",
+    "x-nhsuk"
+  ],
+  "main": "lib/decorate.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/x-govuk/nhsuk-decorated-components.git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "ava",
+    "test:watch": "ava --watch",
+    "coverage": "c8 ava"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "ava": "^4.0.1",
+    "c8": "^7.11.0",
+    "nhsuk-frontend": "^6.1.2",
+    "nunjucks": "^3.2.3",
+    "standard": "^17.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "lcovonly"
+    ]
+  }
+}

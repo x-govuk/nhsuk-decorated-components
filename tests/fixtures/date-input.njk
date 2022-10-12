@@ -1,0 +1,10 @@
+{% from "x-nhsuk/decorated/date-input/macro.njk" import dateInput with context %}
+
+{{ dateInput({
+  fieldset: {
+    legend: {
+      text: "When was your passport issued?"
+    }
+  },
+  decorate: "passport-issued"
+}) }}

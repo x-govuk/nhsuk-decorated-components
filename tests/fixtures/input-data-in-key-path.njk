@@ -1,0 +1,13 @@
+{% from "x-nhsuk/decorated/input/macro.njk" import input with context %}
+
+{{ input({
+  label: {
+    text: "Email address"
+  },
+  decorate: "data.account.email-address",
+  validate: {
+    presence: {
+      message: "Enter your email address"
+    }
+  }
+}) }}

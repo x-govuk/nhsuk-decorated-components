@@ -1,0 +1,4 @@
+{% from "radios/macro.njk" import radios as source -%}
+{%- macro radios(params) -%}
+  {{- source(decorate(params, params.decorate)) -}}
+{%- endmacro %}
