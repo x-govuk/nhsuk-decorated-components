@@ -58,9 +58,9 @@ test('Decorates form component with items', t => {
   const { nunjucks, data } = t.context
   const result = nunjucks.render('radios.njk', data)
 
-  t.regex(result, /for="country"/)
+  t.regex(result, /for="country-1"/)
   t.regex(result, /for="country-2"/)
-  t.regex(result, /id="country".*name="\[country\].*value="england".*checked/)
+  t.regex(result, /id="country-1".*name="\[country\].*value="england".*checked/)
   t.regex(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
@@ -70,9 +70,9 @@ test('Decorates form component with items (data stored in array)', t => {
     data: { country: ['england'] }
   })
 
-  t.regex(result, /for="country"/)
+  t.regex(result, /for="country-1"/)
   t.regex(result, /for="country-2"/)
-  t.regex(result, /id="country".*name="\[country\].*value="england".*checked/)
+  t.regex(result, /id="country-1".*name="\[country\].*value="england".*checked/)
   t.regex(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
@@ -96,7 +96,7 @@ test('Uses label text if no value given for option', t => {
   const { nunjucks, data } = t.context
   const result = nunjucks.render('radios-no-values.njk', data)
 
-  t.regex(result, /id="country".*name="\[country\].*value="England"/)
+  t.regex(result, /id="country-1".*name="\[country\].*value="England"/)
   t.regex(result, /id="country-2".*name="\[country\].*value="Scotland"/)
   t.regex(result, /id="country-3".*name="\[country\].*value="Wales"/)
   t.regex(result, /id="country-4".*name="\[country\].*value="Northern Ireland"/)
