@@ -4,7 +4,7 @@ Form components for the NHS.UK Design System that require less parameters to col
 
 ## Requirements
 
-Node.js v16 or later.
+Node.js v20 or later.
 
 ## Installation
 
