@@ -39,7 +39,7 @@ test('Returns form component without any session data', () => {
   assert.match(result, /name=""/)
 })
 
-test('Decorates form component', t => {
+test('Decorates form component', (t) => {
   const result = env.render('input.njk', data)
 
   assert.match(result, /for="account-email-address"/)
@@ -53,7 +53,10 @@ test('Decorates form component with items', () => {
 
   assert.match(result, /for="country-1"/)
   assert.match(result, /for="country-2"/)
-  assert.match(result, /id="country-1".*name="\[country\].*value="england".*checked/)
+  assert.match(
+    result,
+    /id="country-1".*name="\[country\].*value="england".*checked/
+  )
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
@@ -64,7 +67,10 @@ test('Decorates form component with items (data stored in array)', () => {
 
   assert.match(result, /for="country-1"/)
   assert.match(result, /for="country-2"/)
-  assert.match(result, /id="country-1".*name="\[country\].*value="england".*checked/)
+  assert.match(
+    result,
+    /id="country-1".*name="\[country\].*value="england".*checked/
+  )
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
@@ -88,8 +94,14 @@ test('Uses label text if no value given for option', () => {
   assert.match(result, /id="country-1".*name="\[country\].*value="England"/)
   assert.match(result, /id="country-2".*name="\[country\].*value="Scotland"/)
   assert.match(result, /id="country-3".*name="\[country\].*value="Wales"/)
-  assert.match(result, /id="country-4".*name="\[country\].*value="Northern Ireland"/)
-  assert.match(result, /id="country-6".*name="\[country\].*value="Another country"/)
+  assert.match(
+    result,
+    /id="country-4".*name="\[country\].*value="Northern Ireland"/
+  )
+  assert.match(
+    result,
+    /id="country-6".*name="\[country\].*value="Another country"/
+  )
 })
 
 test('Decorates date input component', () => {
@@ -98,9 +110,18 @@ test('Decorates date input component', () => {
   assert.match(result, /for="passport-issued-day"/)
   assert.match(result, /for="passport-issued-month"/)
   assert.match(result, /for="passport-issued-year"/)
-  assert.match(result, /id="passport-issued-day".*name="\[passport-issued\]\[day\].*value="31"/)
-  assert.match(result, /id="passport-issued-month".*name="\[passport-issued\]\[month\].*value="12"/)
-  assert.match(result, /id="passport-issued-year".*name="\[passport-issued\]\[year\].*value="1999"/)
+  assert.match(
+    result,
+    /id="passport-issued-day".*name="\[passport-issued\]\[day\].*value="31"/
+  )
+  assert.match(
+    result,
+    /id="passport-issued-month".*name="\[passport-issued\]\[month\].*value="12"/
+  )
+  assert.match(
+    result,
+    /id="passport-issued-year".*name="\[passport-issued\]\[year\].*value="1999"/
+  )
 })
 
 test('Strips data from key path', () => {
