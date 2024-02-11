@@ -1,6 +1,6 @@
 # NHS.UK Decorated Components · [![test](https://github.com/x-govuk/nhsuk-decorated-components/actions/workflows/test.yml/badge.svg)](https://github.com/x-govuk/nhsuk-decorated-components/actions/workflows/test.yml)
 
-Form components for the NHS.UK Design System that require less parameters to collect data. [Replace the multiple parameters needed for saving data with a single `decorate` parameter](https://x-govuk.github.io/nhsuk-prototype-rig/using-data/form-components/).
+Form components for the NHS.UK Design System that require less parameters to collect data. [Replace the multiple parameters needed for saving data with a single `decorate` parameter](https://x-govuk.github.io/govuk-prototype-rig/using-data/form-components/).
 
 ## Requirements
 
@@ -8,7 +8,8 @@ Node.js v20 or later.
 
 ## Installation
 
-> **Note** These components are included by default with the [NHS.UK Prototype Rig](https://x-govuk.github.io/nhsuk-prototype-rig/).
+> [!NOTE]
+> These components are included by default with the [NHS.UK Prototype Rig](https://x-govuk.github.io/nhsuk-prototype-rig/).
 
 ```shell
 npm install nhsuk-decorated-components --save
