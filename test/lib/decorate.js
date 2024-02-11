@@ -22,7 +22,8 @@ const data = {
       year: '1999'
     },
     status: 'published'
-  }
+  },
+  name: 'Aneurin Bevan'
 }
 
 test('Returns form component without decorate attribute', () => {
@@ -39,13 +40,22 @@ test('Returns form component without any session data', () => {
   assert.match(result, /name=""/)
 })
 
-test('Decorates form component', (t) => {
+test('Decorates form component from session data', (t) => {
   const result = env.render('input.njk', data)
 
   assert.match(result, /for="account-email-address"/)
   assert.match(result, /id="account-email-address"/)
   assert.match(result, /name="\[account\]\[email-address\]"/)
   assert.match(result, /value="test@example.org"/)
+})
+
+test('Decorates form component from local data', (t) => {
+  const result = env.render('input-locals.njk', data)
+
+  assert.match(result, /for="name"/)
+  assert.match(result, /id="name"/)
+  assert.match(result, /name="\[name\]"/)
+  assert.match(result, /value="Aneurin Bevan"/)
 })
 
 test('Decorates form component with items', () => {
