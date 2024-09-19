@@ -1,4 +1,4 @@
-{% from "input/macro.njk" import input as source %}
+{% from "components/input/macro.njk" import input as source %}
 {%- macro input(params) -%}
   {{- source(decorate(params, params.decorate)) -}}
 {%- endmacro %}

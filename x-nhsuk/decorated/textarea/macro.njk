@@ -1,4 +1,4 @@
-{% from "textarea/macro.njk" import textarea as source -%}
+{% from "components/textarea/macro.njk" import textarea as source -%}
 {%- macro textarea(params) -%}
   {{- source(decorate(params, params.decorate)) -}}
 {%- endmacro %}

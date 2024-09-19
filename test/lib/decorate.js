@@ -5,7 +5,7 @@ const { decorate } = require('../../lib/decorate.js')
 
 const env = nunjucks.configure([
   './',
-  './node_modules/nhsuk-frontend/packages/components',
+  './node_modules/nhsuk-frontend/packages',
   './test/fixtures'
 ])
 env.addGlobal('decorate', decorate)

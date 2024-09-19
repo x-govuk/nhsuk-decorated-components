@@ -1,4 +1,4 @@
-{% from "button/macro.njk" import button as source -%}
+{% from "components/button/macro.njk" import button as source -%}
 {%- macro button(params) -%}
   {{- source(params) if params.href else source(decorate(params, params.decorate)) -}}
 {%- endmacro %}
