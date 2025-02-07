@@ -1,9 +1,9 @@
-const assert = require('node:assert/strict')
-const test = require('node:test')
+import assert from 'node:assert/strict'
+import test from 'node:test'
 
-const nunjucks = require('nunjucks')
+import nunjucks from 'nunjucks'
 
-const { decorate } = require('../../lib/decorate.js')
+import { decorate } from '../../lib/decorate.js'
 
 const env = nunjucks.configure([
   './',

@@ -36,7 +36,7 @@ To add them to the NHS.UK Prototype Kit, follow these steps:
      var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
 
      // Add Nunjucks Globals
-   + const { decorate } = require('nhsuk-decorated-components')
+   + import { decorate } from 'nhsuk-decorated-components'
    + nunjucksAppEnv.addGlobal('decorate', decorate)
 
      // Add Nunjucks filters
