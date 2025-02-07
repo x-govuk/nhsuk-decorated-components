@@ -100,6 +100,23 @@ test('Decorates form component with items (data stored in array)', () => {
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
+test('Decorates form component with items (no data, no item checked)', () => {
+  const result = env.render('radios.njk')
+
+  assert.match(result, /id="country-1".*name="\[country\].*value="england"/)
+  assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
+})
+
+test('Decorates form component with items (no data, item checked)', () => {
+  const result = env.render('radios-checked.njk')
+
+  assert.match(
+    result,
+    /id="country-1".*name="\[country\].*value="england".*checked/
+  )
+  assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
+})
+
 test('Decorates button component', () => {
   const result = env.render('button.njk', data)
 
