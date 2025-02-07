@@ -1,0 +1,29 @@
+{% from "x-nhsuk/decorated/radios/macro.njk" import radios with context %}
+
+{{ radios({
+  fieldset: {
+    legend: {
+      text: "Where do you live?"
+    }
+  },
+  items: [{
+    value: "england",
+    text: "England",
+    checked: true
+  }, {
+    value: "scotland",
+    text: "Scotland"
+  }, {
+    value: "wales",
+    text: "Wales"
+  }, {
+    value: "northern-ireland",
+    text: "Northern Ireland"
+  }, {
+    divider: "or"
+  }, {
+    value: "other",
+    text: "Another country"
+  }],
+  decorate: "country"
+}) }}
