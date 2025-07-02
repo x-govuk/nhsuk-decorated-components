@@ -1,4 +1,4 @@
-{% from "components/checkboxes/macro.njk" import checkboxes as source -%}
+{% from "nhsuk/components/checkboxes/macro.njk" import checkboxes as source -%}
 {%- macro checkboxes(params) -%}
   {{- source(decorate(params, params.decorate)) -}}
 {%- endmacro %}

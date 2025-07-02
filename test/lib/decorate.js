@@ -7,7 +7,7 @@ import { decorate } from '../../lib/decorate.js'
 
 const env = nunjucks.configure([
   './',
-  './node_modules/nhsuk-frontend/packages',
+  './node_modules/nhsuk-frontend/dist',
   './test/fixtures'
 ])
 env.addGlobal('decorate', decorate)
@@ -77,11 +77,11 @@ test('Decorates form component from local data', (t) => {
 test('Decorates form component with items', () => {
   const result = env.render('radios.njk', data)
 
-  assert.match(result, /for="country-1"/)
+  assert.match(result, /for="country"/)
   assert.match(result, /for="country-2"/)
   assert.match(
     result,
-    /id="country-1".*name="\[country\].*value="england".*checked/
+    /id="country".*name="\[country\].*value="england".*checked/
   )
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
@@ -91,11 +91,11 @@ test('Decorates form component with items (data stored in array)', () => {
     data: { country: ['england'] }
   })
 
-  assert.match(result, /for="country-1"/)
+  assert.match(result, /for="country"/)
   assert.match(result, /for="country-2"/)
   assert.match(
     result,
-    /id="country-1".*name="\[country\].*value="england".*checked/
+    /id="country".*name="\[country\].*value="england".*checked/
   )
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
@@ -103,7 +103,7 @@ test('Decorates form component with items (data stored in array)', () => {
 test('Decorates form component with items (no data, no item checked)', () => {
   const result = env.render('radios.njk')
 
-  assert.match(result, /id="country-1".*name="\[country\].*value="england"/)
+  assert.match(result, /id="country".*name="\[country\].*value="england"/)
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
@@ -112,7 +112,7 @@ test('Decorates form component with items (no data, item checked)', () => {
 
   assert.match(
     result,
-    /id="country-1".*name="\[country\].*value="england".*checked/
+    /id="country".*name="\[country\].*value="england".*checked/
   )
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
@@ -134,7 +134,7 @@ test('Does not decorate button link component', () => {
 test('Uses label text if no value given for option', () => {
   const result = env.render('radios-no-values.njk', data)
 
-  assert.match(result, /id="country-1".*name="\[country\].*value="England"/)
+  assert.match(result, /id="country".*name="\[country\].*value="England"/)
   assert.match(result, /id="country-2".*name="\[country\].*value="Scotland"/)
   assert.match(result, /id="country-3".*name="\[country\].*value="Wales"/)
   assert.match(

@@ -1,4 +1,4 @@
-{% from "components/select/macro.njk" import select as source -%}
+{% from "nhsuk/components/select/macro.njk" import select as source -%}
 {%- macro select(params) -%}
   {{- source(decorate(params, params.decorate)) -}}
 {%- endmacro %}

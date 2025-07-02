@@ -1,4 +1,4 @@
-{% from "components/date-input/macro.njk" import dateInput as source -%}
+{% from "nhsuk/components/date-input/macro.njk" import dateInput as source -%}
 {%- macro dateInput(params) -%}
   {{- source(decorate(params, params.decorate, "dateInput")) -}}
 {%- endmacro %}
