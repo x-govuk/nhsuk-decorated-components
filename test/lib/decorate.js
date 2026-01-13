@@ -167,6 +167,15 @@ test('Decorates date input component', () => {
   )
 })
 
+test('Decorates file upload component', () => {
+  const result = env.render('file-upload.njk', data)
+
+  assert.match(result, /for="file"/)
+
+  // Note: no modern browser supports passing a `value` to a file input
+  assert.match(result, /id="file".*name="\[file\]"/)
+})
+
 test('Strips data from key path', () => {
   const result = env.render('input-data-in-key-path.njk', data)
 

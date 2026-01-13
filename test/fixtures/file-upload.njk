@@ -1,0 +1,8 @@
+{% from "x-nhsuk/decorated/file-upload/macro.njk" import fileUpload with context %}
+
+{{ fileUpload({
+  label: {
+    text: "Upload file"
+  },
+  decorate: "file"
+}) }}

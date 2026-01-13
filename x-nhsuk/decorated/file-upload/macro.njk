@@ -1,0 +1,4 @@
+{% from "nhsuk/components/file-upload/macro.njk" import fileUpload as source %}
+{%- macro fileUpload(params) -%}
+  {{- source(decorate(params, params.decorate)) -}}
+{%- endmacro %}
