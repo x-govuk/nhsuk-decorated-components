@@ -1,0 +1,4 @@
+{% from "nhsuk/components/character-count/macro.njk" import characterCount as source -%}
+{%- macro characterCount(params) -%}
+  {{- source(decorate(params, params.decorate)) -}}
+{%- endmacro %}

@@ -1,0 +1,8 @@
+{% from "x-nhsuk/decorated/character-count/macro.njk" import characterCount with context %}
+
+{{ characterCount({
+  label: {
+    text: "Add more details"
+  },
+  decorate: "details"
+}) }}

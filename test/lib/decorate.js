@@ -24,6 +24,7 @@ const data = {
       month: '12',
       year: '1999'
     },
+    details: 'More details',
     status: 'published'
   },
   name: 'Aneurin Bevan'
@@ -148,6 +149,14 @@ test('Uses label text if no value given for option', () => {
   )
 })
 
+test('Decorates character count component', () => {
+  const result = env.render('character-count.njk', data)
+
+  assert.match(result, /for="details"/)
+  assert.match(result, /id="details".*name="\[details\]"/)
+  assert.match(result, />More details<\/textarea>/)
+})
+
 test('Decorates date input component', () => {
   const result = env.render('date-input.njk', data)
 
@@ -181,7 +190,6 @@ test('Decorates password input component', () => {
   const result = env.render('password-input.njk', data)
 
   assert.match(result, /for="account-password"/)
-
   assert.match(
     result,
     /id="account-password".*name="\[account\]\[password\]".*value="1234abcd"/
