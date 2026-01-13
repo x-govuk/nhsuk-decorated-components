@@ -25,6 +25,7 @@ const data = {
       year: '1999'
     },
     details: 'More details',
+    sort: 'most-views',
     status: 'published'
   },
   name: 'Aneurin Bevan'
@@ -193,6 +194,17 @@ test('Decorates password input component', () => {
   assert.match(
     result,
     /id="account-password".*name="\[account\]\[password\]".*value="1234abcd"/
+  )
+})
+
+test('Decorates select component', () => {
+  const result = env.render('select.njk', data)
+
+  assert.match(result, /for="sort-items"/)
+  assert.match(result, /id="sort-items".*name="\[sort\]"/)
+  assert.match(
+    result,
+    /<option value="most-views" selected>Most views<\/option>/
   )
 })
 

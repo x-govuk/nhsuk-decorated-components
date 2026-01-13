@@ -1,0 +1,26 @@
+{% from "x-nhsuk/decorated/select/macro.njk" import select with context %}
+
+{{ select({
+  label: {
+    text: "Sort by"
+  },
+  items: [
+    {
+      value: "recently-published",
+      text: "Recently published"
+    },
+    {
+      value: "recently-updated",
+      text: "Recently updated"
+    },
+    {
+      value: "most-views",
+      text: "Most views"
+    },
+    {
+      value: "most-comments",
+      text: "Most comments"
+    }
+  ],
+  decorate: "sort"
+}) }}
