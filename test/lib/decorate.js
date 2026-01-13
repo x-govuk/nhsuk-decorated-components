@@ -15,7 +15,8 @@ env.addGlobal('decorate', decorate)
 const data = {
   data: {
     account: {
-      'email-address': 'test@example.org'
+      'email-address': 'test@example.org',
+      password: '1234abcd'
     },
     country: 'england',
     'passport-issued': {
@@ -174,6 +175,17 @@ test('Decorates file upload component', () => {
 
   // Note: no modern browser supports passing a `value` to a file input
   assert.match(result, /id="file".*name="\[file\]"/)
+})
+
+test('Decorates password input component', () => {
+  const result = env.render('password-input.njk', data)
+
+  assert.match(result, /for="account-password"/)
+
+  assert.match(
+    result,
+    /id="account-password".*name="\[account\]\[password\]".*value="1234abcd"/
+  )
 })
 
 test('Strips data from key path', () => {

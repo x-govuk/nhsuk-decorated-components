@@ -1,0 +1,4 @@
+{% from "nhsuk/components/password-input/macro.njk" import passwordInput as source %}
+{%- macro passwordInput(params) -%}
+  {{- source(decorate(params, params.decorate)) -}}
+{%- endmacro %}
