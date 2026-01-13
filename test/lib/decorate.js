@@ -18,6 +18,7 @@ const data = {
       'email-address': 'test@example.org',
       password: '1234abcd'
     },
+    'contact-method': 'email',
     country: 'england',
     'passport-issued': {
       day: '31',
@@ -48,15 +49,6 @@ test('Returns form component without any session data', () => {
   assert.doesNotMatch(result, /value/)
 })
 
-test('Decorates form component from session data', (t) => {
-  const result = env.render('input.njk', data)
-
-  assert.match(result, /for="account-email-address"/)
-  assert.match(result, /id="account-email-address"/)
-  assert.match(result, /name="\[account\]\[email-address\]"/)
-  assert.match(result, /value="test@example.org"/)
-})
-
 test('Returns form component without any local data', () => {
   const result = env.render('input-locals.njk', {})
 
@@ -65,6 +57,15 @@ test('Returns form component without any local data', () => {
   assert.match(result, /id="name"/)
   assert.match(result, /name="\[name\]"/)
   assert.doesNotMatch(result, /value/)
+})
+
+test('Decorates form component from session data', (t) => {
+  const result = env.render('input.njk', data)
+
+  assert.match(result, /for="account-email-address"/)
+  assert.match(result, /id="account-email-address"/)
+  assert.match(result, /name="\[account\]\[email-address\]"/)
+  assert.match(result, /value="test@example.org"/)
 })
 
 test('Decorates form component from local data', (t) => {
@@ -77,9 +78,26 @@ test('Decorates form component from local data', (t) => {
   assert.match(result, /value="Aneurin Bevan"/)
 })
 
-test('Decorates form component with items', () => {
+test('Decorates checkboxes component with items', () => {
+  const result = env.render('checkboxes.njk', data)
+
+  assert.match(result, /id="contact-method-items"/)
+  assert.match(result, /for="contact-method"/)
+  assert.match(result, /for="contact-method-2"/)
+  assert.match(
+    result,
+    /id="contact-method".*name="\[contact-method\].*value="email".*checked/
+  )
+  assert.match(
+    result,
+    /id="contact-method-2".*name="\[contact-method\].*value="phone"/
+  )
+})
+
+test('Decorates radios component', () => {
   const result = env.render('radios.njk', data)
 
+  assert.match(result, /id="country-items"/)
   assert.match(result, /for="country"/)
   assert.match(result, /for="country-2"/)
   assert.match(
@@ -89,7 +107,7 @@ test('Decorates form component with items', () => {
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
-test('Decorates form component with items (data stored in array)', () => {
+test('Decorates radios component (data stored in array)', () => {
   const result = env.render('radios.njk', {
     data: { country: ['england'] }
   })
@@ -103,14 +121,14 @@ test('Decorates form component with items (data stored in array)', () => {
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
-test('Decorates form component with items (no data, no item checked)', () => {
+test('Decorates radios component (no data, no item checked)', () => {
   const result = env.render('radios.njk')
 
   assert.match(result, /id="country".*name="\[country\].*value="england"/)
   assert.match(result, /id="country-2".*name="\[country\].*value="scotland"/)
 })
 
-test('Decorates form component with items (no data, item checked)', () => {
+test('Decorates radios component (no data, item checked)', () => {
   const result = env.render('radios-checked.njk')
 
   assert.match(
@@ -225,7 +243,7 @@ test('Strips data from key path', () => {
   assert.match(result, /value="test@example.org"/)
 })
 
-test('Add message if error', () => {
+test('Adds message if error', () => {
   const result = env.render('input.njk', {
     ...data,
     ...{
