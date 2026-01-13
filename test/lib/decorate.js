@@ -196,6 +196,14 @@ test('Decorates password input component', () => {
   )
 })
 
+test('Decorates textarea component', () => {
+  const result = env.render('textarea.njk', data)
+
+  assert.match(result, /for="details"/)
+  assert.match(result, /id="details".*name="\[details\]"/)
+  assert.match(result, />More details<\/textarea>/)
+})
+
 test('Strips data from key path', () => {
   const result = env.render('input-data-in-key-path.njk', data)
 
