@@ -42,7 +42,7 @@
   "devDependencies": {
     "@x-govuk/eslint-config": "^0.0.1",
     "nhsuk-frontend": "^10.3.0",
-    "np": "^10.0.0",
+    "np": "^11.0.2",
     "nunjucks": "^3.2.3",
     "prettier": "^3.1.0"
   },
