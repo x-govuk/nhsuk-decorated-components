@@ -1,0 +1,4 @@
+{% from "nhsuk/components/search-input/macro.njk" import searchInput as source %}
+{%- macro searchInput(params) -%}
+  {{- source(decorate(params, params.decorate)) -}}
+{%- endmacro %}

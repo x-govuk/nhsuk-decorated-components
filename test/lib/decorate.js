@@ -26,6 +26,7 @@ const data = {
       year: '1999'
     },
     details: 'More details',
+    search: 'query',
     sort: 'most-views',
     status: 'published'
   },
@@ -213,6 +214,13 @@ test('Decorates password input component', () => {
     result,
     /id="account-password".*name="\[account\]\[password\]".*value="1234abcd"/
   )
+})
+
+test('Decorates search input component', () => {
+  const result = env.render('search-input.njk', data)
+
+  assert.match(result, /for="search"/)
+  assert.match(result, /id="search".*name="\[search\]".*value="query"/)
 })
 
 test('Decorates select component', () => {
