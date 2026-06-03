@@ -37,14 +37,14 @@
     "access": "public"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.18.1"
   },
   "devDependencies": {
-    "@x-govuk/eslint-config": "^0.0.1",
-    "nhsuk-frontend": "^10.3.0",
-    "np": "^10.0.0",
-    "nunjucks": "^3.2.3",
-    "prettier": "^3.1.0"
+    "@x-govuk/eslint-config": "^0.0.2",
+    "nhsuk-frontend": "^10.5.0",
+    "np": "^11.2.1",
+    "nunjucks": "^3.2.4",
+    "prettier": "^3.8.3"
   },
   "engines": {
     "node": ">=20"
