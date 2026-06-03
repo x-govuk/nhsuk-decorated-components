@@ -60,7 +60,7 @@ test('Returns form component without any local data', () => {
   assert.doesNotMatch(result, /value/)
 })
 
-test('Decorates form component from session data', (t) => {
+test('Decorates form component from session data', () => {
   const result = env.render('input.njk', data)
 
   assert.match(result, /for="account-email-address"/)
@@ -69,7 +69,7 @@ test('Decorates form component from session data', (t) => {
   assert.match(result, /value="test@example.org"/)
 })
 
-test('Decorates form component from local data', (t) => {
+test('Decorates form component from local data', () => {
   const result = env.render('input-locals.njk', data)
 
   assert.match(result, /Name/)
