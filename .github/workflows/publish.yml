@@ -21,7 +21,7 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
       - name: Update npm
-        run: npm install -g npm@latest # Ensure npm 11.5.1 or later is installed
+        run: npm install -g npm@^11.5.1 # Trusted publishing requires 11.5.1+
       - name: Install dependencies
         run: npm ci
       - name: Test
