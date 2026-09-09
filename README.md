@@ -8,9 +8,6 @@ Node.js v24 or later.
 
 ## Installation
 
-> [!NOTE]
-> These components are included by default with the [NHS.UK Prototype Rig](https://x-govuk.github.io/nhsuk-prototype-rig/).
-
 ```shell
 npm install nhsuk-decorated-components --save
 ```
@@ -19,38 +16,59 @@ npm install nhsuk-decorated-components --save
 
 To add them to the NHS.UK Prototype Kit, follow these steps:
 
-1. Add `/node_modules/nhsuk-decorated-components` to your application’s views (`appViews`) in `server.js`:
+1. In `app.js`, add `/node_modules/nhsuk-decorated-components` to your prototype’s `viewsPath` array, and add the `decorate` function to `globals`. For example:
 
    ```diff
-     // Set up App
-     var appViews = extensions.getAppViews([
-   +   path.join(projectDir, '/node_modules/nhsuk-decorated-components'),
-       path.join(projectDir, '/app/views/'),
-       path.join(projectDir, '/lib/')
-     ])
-   ```
-
-2. Add the `decorate` global function to your Nunjucks environment (`nunjucksAppEnv`) in `server.js`:
-
-   ```diff
-     var nunjucksAppEnv = nunjucks.configure(appViews, nunjucksConfig)
-
-     // Add Nunjucks Globals
    + import { decorate } from 'nhsuk-decorated-components'
-   + nunjucksAppEnv.addGlobal('decorate', decorate)
+     import NHSPrototypeKit from 'nhsuk-prototype-kit'
 
-     // Add Nunjucks filters
-     utils.addNunjucksFilters(nunjucksAppEnv)
+     // Local dependencies
+     import config from './app/config.js'
+     import sessionDataDefaults from './app/data/session-data-defaults.js'
+     import filters from './app/filters.js'
+     import locals from './app/locals.js'
+     import locals from './app/routes.js'
+
+     async function init() {
+       const prototype = await NHSPrototypeKit.init({
+         buildOptions: {
+           entryPoints: [
+             'app/assets/sass/main.scss',
+             'app/assets/javascript/*.js'
+           ]
+         },
+         locals,
+         filters,
+   +     globals: {
+   +       decorate
+   +     },
+         routes,
+         serviceName: config.serviceName,
+         sessionDataDefaults,
+         viewsPath: [
+           'app/views/',
+   +       'node_modules/nhsuk-decorated-components'
+         ]
+       })
+
+       prototype.start(config.port)
+     }
+
+     init()
    ```
 
-3. Replace imported NHS.UK Frontend macros with those provided by this package:
+2. Replace imported NHS.UK Frontend macros with those provided by this package:
 
    ```diff
    + {% from "x-nhsuk/decorated/button/macro.njk" import button with context %}
+   + {% from "x-nhsuk/decorated/character-count/macro.njk" import characterCount with context %}
    + {% from "x-nhsuk/decorated/checkboxes/macro.njk" import checkboxes with context %}
    + {% from "x-nhsuk/decorated/date-input/macro.njk" import dateInput with context %}
+   + {% from "x-nhsuk/decorated/file-upload/macro.njk" import fileUpload with context %}
    + {% from "x-nhsuk/decorated/input/macro.njk" import input with context %}
+   + {% from "x-nhsuk/decorated/password-input/macro.njk" import passwordInput with context %}
    + {% from "x-nhsuk/decorated/radios/macro.njk" import radios with context %}
+   + {% from "x-nhsuk/decorated/search-input/macro.njk" import searchInput with context %}
    + {% from "x-nhsuk/decorated/select/macro.njk" import select with context %}
    + {% from "x-nhsuk/decorated/textarea/macro.njk" import textarea with context %}
    ```
